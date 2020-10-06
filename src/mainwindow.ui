@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>177</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CS 123 Final - Terrain Generator</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>177</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Fi&amp;le</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QDockWidget" name="settingsDock">
+   <property name="minimumSize">
+    <size>
+     <width>160</width>
+     <height>211</height>
+    </size>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetMovable</set>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="settingsDockContent">
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <layout class="QVBoxLayout" name="settingsLayout">
+     <item>
+      <widget class="QWidget" name="scale" native="true">
+       <widget class="QPushButton" name="exportButton">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>600</y>
+          <width>201</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Export Terrain as .OBJ</string>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="texturesGroupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>410</y>
+          <width>251</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Textures</string>
+        </property>
+        <widget class="QCheckBox" name="useNormalMapping">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>171</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Normal Mapping</string>
+         </property>
+        </widget>
+        <widget class="Line" name="line_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>50</y>
+           <width>221</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="useTextureMapping">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>171</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Texture Mapping</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="environmentGroupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>520</y>
+          <width>251</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Environment</string>
+        </property>
+        <widget class="QCheckBox" name="useFog">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Fog</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="biomesGroupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>251</width>
+          <height>241</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Terrain</string>
+        </property>
+        <widget class="QCheckBox" name="showPlains">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>170</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Plains</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="octaves" native="true">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>191</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <widget class="QLabel" name="octavesLabel">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>60</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Octaves</string>
+          </property>
+         </widget>
+         <widget class="QSlider" name="octavesSlider">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>10</y>
+            <width>81</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>6</number>
+          </property>
+          <property name="value">
+           <number>4</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksBothSides</enum>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="octavesTextbox">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>10</y>
+            <width>31</width>
+            <height>21</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+        <widget class="Line" name="line">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>150</y>
+           <width>221</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="Line" name="line_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>190</y>
+           <width>221</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="showMountains">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>130</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Mountains</string>
+         </property>
+        </widget>
+        <widget class="Line" name="line_3">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>110</y>
+           <width>221</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QSlider" name="scaleSlider">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>40</y>
+           <width>131</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>20</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="scaleLabel">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>60</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Scale</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="showHills">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>210</y>
+           <width>87</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Hills</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="scaleTextbox">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>40</y>
+           <width>31</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="skyGroupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>250</y>
+          <width>251</width>
+          <height>141</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Sky</string>
+        </property>
+        <widget class="QWidget" name="sky" native="true">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>20</y>
+           <width>251</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <widget class="QRadioButton" name="daySky">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Day</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_5">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>30</y>
+            <width>221</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="nightSky">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Night</string>
+          </property>
+         </widget>
+         <widget class="Line" name="line_6">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>70</y>
+            <width>221</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+         <widget class="QRadioButton" name="sunsetSky">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>90</y>
+            <width>100</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>Sunset</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionQuit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exportButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>exportTerrain()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>87</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>exportTerrain()</slot>
+ </slots>
+</ui>

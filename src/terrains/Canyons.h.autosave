@@ -1,0 +1,15 @@
+#ifndef CANYONS_H
+#define CANYONS_H
+
+#include "Biome.h"
+
+class Canyons : public Biome
+{
+public:
+    Canyons(int numRows, int numCols, float scale);
+    ~Canyons();
+    
+    
+};
+
+#endif // CANYONS_H
