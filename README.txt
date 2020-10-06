@@ -1,3 +1,5 @@
+# CS1230 Computer Graphics Final Project: Terrain Generator
+## Partners: Ellie Madsen and Jenna Soenksen
 Final Project README
 
 
